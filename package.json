@@ -1,0 +1,20 @@
+{
+  "name": "npm-jenkins-demo",
+  "version": "1.0.0",
+  "description": "Small npm project for practising Jenkins pipelines",
+  "main": "src/index.js",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint src test scripts",
+    "test": "node --test test/",
+    "test:ci": "node -e \"require('fs').mkdirSync('reports',{recursive:true})\" && node --test --test-reporter=junit --test-reporter-destination=reports/junit.xml test/",
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  }
+}
